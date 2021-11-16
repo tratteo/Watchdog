@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Watchdog": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\matteo\\Documents\\Projects\\Siamango\\Solmango\\SolmangoDAO\\bin\\release\\net6.0\\SolmangoDAO.exe \"option.json test.json\" -w C:\\Users\\matteo\\Documents\\Projects\\Siamango\\Solmango\\SolmangoDAO\\bin\\release\\net6.0\\ /k"
+    }
+  }
+}
