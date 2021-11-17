@@ -20,10 +20,10 @@ public class Watchdog
 
     public Watchdog(string executable, string arguments, string? workingDir = null)
     {
-        this.executablePath = executable;
+        executablePath = executable;
         this.arguments = arguments;
         this.workingDir = workingDir;
-        this.executableName = SplitPath(executable).Item2;
+        executableName = SplitPath(executable).Item2;
         AppDomain.CurrentDomain.ProcessExit += OnExit;
     }
 
