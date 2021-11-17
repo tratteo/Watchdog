@@ -5,8 +5,8 @@ Launch the Watchdog process passing the observed process and eventually its argu
 Arguments:   
 ```
 p0    path to the observed process executable   
-p1    arguments for the ebserved   
 
+-arg  observed process arguments   
 -mi   max number of reboots   
 -w    observed working directory   
 
