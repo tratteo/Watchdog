@@ -1,6 +1,5 @@
 ﻿//TODO args: name, wake up interval
-using GibNet;
-using GibNet.Logging;
+using HandierCli;
 
 ArgumentsHandler handler = ArgumentsHandler.Factory()
     .Positional("process to watch over")

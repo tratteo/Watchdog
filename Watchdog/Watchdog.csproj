@@ -12,9 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="GibNet">
-      <HintPath>..\..\GibNet\GibNet\bin\Release\net6.0\GibNet.dll</HintPath>
-    </Reference>
+    <PackageReference Include="HandierCli" Version="1.0.1" />
   </ItemGroup>
 
 </Project>

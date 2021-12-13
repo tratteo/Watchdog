@@ -1,4 +1,4 @@
-﻿using GibNet.Logging;
+﻿using HandierCli;
 using System.Diagnostics;
 
 public class Watchdog
