@@ -1,7 +1,9 @@
 ﻿using HandierCli;
 using System.Diagnostics;
 
-public class Watchdog
+namespace Watchdog;
+
+public class ProcessWatchdog
 {
     private readonly string executablePath;
     private readonly string arguments;
@@ -18,7 +20,7 @@ public class Watchdog
 
     public int MaxIterations { get; set; } = int.MaxValue;
 
-    public Watchdog(string executable, string arguments, string? workingDir = null)
+    public ProcessWatchdog(string executable, string arguments, string? workingDir = null)
     {
         executablePath = executable;
         this.arguments = arguments;
@@ -45,18 +47,14 @@ public class Watchdog
     private void OnExit(object? sender, EventArgs args)
     {
         if (KillOnExit && instance != null)
-        {
             instance.Kill();
-        }
     }
 
     private (string, string) SplitPath(string path)
     {
         var index = path.LastIndexOf("/");
         if (index == -1)
-        {
             index = path.LastIndexOf("\\");
-        }
         var folder = index < 0 ? string.Empty : path[..(index + 1)];
         var name = path.Substring(index + 1, path.Length - index - 1);
         return (folder, name);
@@ -66,13 +64,9 @@ public class Watchdog
     {
         ProcessStartInfo startInfo = new ProcessStartInfo(executablePath, arguments);
         if (!Embed)
-        {
             startInfo.UseShellExecute = true;
-        }
         if (workingDir != null)
-        {
             startInfo.WorkingDirectory = workingDir;
-        }
 
         return Process.Start(startInfo);
     }

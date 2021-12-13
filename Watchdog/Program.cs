@@ -1,5 +1,6 @@
 ﻿//TODO args: name, wake up interval
 using HandierCli;
+using Watchdog;
 
 ArgumentsHandler handler = ArgumentsHandler.Factory()
     .Positional("process to watch over")
@@ -28,7 +29,7 @@ if (handler.Valid())
         Console.ReadKey();
         Environment.Exit(1);
     }
-    Watchdog watchdog = new Watchdog(executable, arguments, workingDir)
+    ProcessWatchdog watchdog = new ProcessWatchdog(executable, arguments, workingDir)
     {
         Embed = handler.HasFlag("/e"),
         KillOnExit = handler.HasFlag("/k")
